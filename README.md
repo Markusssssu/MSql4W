@@ -31,4 +31,5 @@
    git clone https://github.com/Markusssssu/MSql4W.git
    cd MSql4W\Sqlite3\x64\Debug
 4. Запустить программу
+  ```bash
    ./Sqlite3
