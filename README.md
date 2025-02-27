@@ -32,10 +32,5 @@
    cd MSql4W\Sqlite3\x64\Debug
 4. Запустить программу:
   ```bash
-   .\Sqlite3
-   
-
-   
-
-                                           
+   .\Sqlite3                                       
 
