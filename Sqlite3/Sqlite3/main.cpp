@@ -9,7 +9,7 @@ void executeSQL(sqlite3* db, const std::string& sql) {
     char* errMsg = nullptr;
     int rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
     if (rc != SQLITE_OK) {
-        std::cerr << "Îøèáêà SQL: " << errMsg << std::endl;
+        std::cerr << "ÃŽÃ¸Ã¨Ã¡ÃªÃ  SQL: " << errMsg << std::endl;
         sqlite3_free(errMsg);
     }
 }
@@ -84,21 +84,21 @@ void executeQuery(sqlite3* db, const std::string& sql) {
         printTable(stmt);
     }
     else {
-        std::cerr << "Îøèáêà ïðè âûïîëíåíèè çàïðîñà: " << sqlite3_errmsg(db) << std::endl;
+        std::cerr << "ÃŽÃ¸Ã¨Ã¡ÃªÃ  Ã¯Ã°Ã¨ Ã¢Ã»Ã¯Ã®Ã«Ã­Ã¥Ã­Ã¨Ã¨ Ã§Ã Ã¯Ã°Ã®Ã±Ã : " << sqlite3_errmsg(db) << std::endl;
     }
     sqlite3_finalize(stmt);
 }
 
 
 void showMainMenu() {
-    std::cout << "1. Ñîçäàòü òàáëèöó (Ìåíþ)\n";
-    std::cout << "2. Äîáàâèòü äàííûå (Ìåíþ)\n";
-    std::cout << "3. Âûáðàòü äàííûå (Ìåíþ)\n";
-    std::cout << "4. Îáíîâèòü äàííûå (Ìåíþ)\n";
-    std::cout << "5. Óäàëèòü äàííûå (Ìåíþ)\n";
-    std::cout << "6. Ðó÷íîé ââîä SQL\n";
-    std::cout << "7. Âûõîä\n";
-    std::cout << "Âûáåðèòå îïöèþ: ";
+    std::cout << "1. Ã‘Ã®Ã§Ã¤Ã Ã²Ã¼ Ã²Ã Ã¡Ã«Ã¨Ã¶Ã³ (ÃŒÃ¥Ã­Ã¾)\n";
+    std::cout << "2. Ã„Ã®Ã¡Ã Ã¢Ã¨Ã²Ã¼ Ã¤Ã Ã­Ã­Ã»Ã¥ (ÃŒÃ¥Ã­Ã¾)\n";
+    std::cout << "3. Ã‚Ã»Ã¡Ã°Ã Ã²Ã¼ Ã¤Ã Ã­Ã­Ã»Ã¥ (ÃŒÃ¥Ã­Ã¾)\n";
+    std::cout << "4. ÃŽÃ¡Ã­Ã®Ã¢Ã¨Ã²Ã¼ Ã¤Ã Ã­Ã­Ã»Ã¥ (ÃŒÃ¥Ã­Ã¾)\n";
+    std::cout << "5. Ã“Ã¤Ã Ã«Ã¨Ã²Ã¼ Ã¤Ã Ã­Ã­Ã»Ã¥ (ÃŒÃ¥Ã­Ã¾)\n";
+    std::cout << "6. ÃÃ³Ã·Ã­Ã®Ã© Ã¢Ã¢Ã®Ã¤ SQL\n";
+    std::cout << "7. Ã‚Ã»ÃµÃ®Ã¤\n";
+    std::cout << "Ã‚Ã»Ã¡Ã¥Ã°Ã¨Ã²Ã¥ Ã®Ã¯Ã¶Ã¨Ã¾: ";
 }
 
 int main() {
@@ -108,7 +108,7 @@ int main() {
     sqlite3* db;
     int rc = sqlite3_open("database.db", &db); 
     if (rc) {
-        std::cerr << "Îøèáêà ïðè îòêðûòèè áàçû äàííûõ: " << sqlite3_errmsg(db) << std::endl;
+        std::cerr << "ÃŽÃ¸Ã¨Ã¡ÃªÃ  Ã¯Ã°Ã¨ Ã®Ã²ÃªÃ°Ã»Ã²Ã¨Ã¨ Ã¡Ã Ã§Ã» Ã¤Ã Ã­Ã­Ã»Ãµ: " << sqlite3_errmsg(db) << std::endl;
         return 1;
     }
 
@@ -122,9 +122,9 @@ int main() {
         case 1: {
             std::string* tableName = new std::string;
             std::string* sql = new std::string;
-            std::cout << "Ââåäèòå íàçâàíèå òàáëèöû: ";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ Ã²Ã Ã¡Ã«Ã¨Ã¶Ã»: ";
             std::getline(std::cin, *tableName);
-            std::cout << "Ââåäèòå SQL-çàïðîñ äëÿ ñîçäàíèÿ òàáëèöû (íàïðèìåð, CREATE TABLE " << *tableName << " (id INTEGER PRIMARY KEY, name TEXT));\n";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ SQL-Ã§Ã Ã¯Ã°Ã®Ã± Ã¤Ã«Ã¿ Ã±Ã®Ã§Ã¤Ã Ã­Ã¨Ã¿ Ã²Ã Ã¡Ã«Ã¨Ã¶Ã» (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, CREATE TABLE " << *tableName << " (id INTEGER PRIMARY KEY, name TEXT));\n";
             std::getline(std::cin, *sql);
             executeSQL(db, *sql);
             delete tableName;
@@ -134,9 +134,9 @@ int main() {
         case 2: {
             std::string* tableName = new std::string;
             std::string* sql = new std::string;
-            std::cout << "Ââåäèòå íàçâàíèå òàáëèöû: ";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ Ã²Ã Ã¡Ã«Ã¨Ã¶Ã»: ";
             std::getline(std::cin, *tableName);
-            std::cout << "Ââåäèòå SQL-çàïðîñ äëÿ âñòàâêè äàííûõ (íàïðèìåð, INSERT INTO " << *tableName << " (name) VALUES ('Alice'));\n";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ SQL-Ã§Ã Ã¯Ã°Ã®Ã± Ã¤Ã«Ã¿ Ã¢Ã±Ã²Ã Ã¢ÃªÃ¨ Ã¤Ã Ã­Ã­Ã»Ãµ (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, INSERT INTO " << *tableName << " (name) VALUES ('Mark'));\n";
             std::getline(std::cin, *sql);
             executeSQL(db, *sql);
             delete tableName;
@@ -146,9 +146,9 @@ int main() {
         case 3: {
             std::string* tableName = new std::string;
             std::string* sql = new std::string;
-            std::cout << "Ââåäèòå íàçâàíèå òàáëèöû: ";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ Ã²Ã Ã¡Ã«Ã¨Ã¶Ã»: ";
             std::getline(std::cin, *tableName);
-            std::cout << "Ââåäèòå SQL-çàïðîñ äëÿ âûáîðêè äàííûõ (íàïðèìåð, SELECT * FROM " << *tableName << ");\n";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ SQL-Ã§Ã Ã¯Ã°Ã®Ã± Ã¤Ã«Ã¿ Ã¢Ã»Ã¡Ã®Ã°ÃªÃ¨ Ã¤Ã Ã­Ã­Ã»Ãµ (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, SELECT * FROM " << *tableName << ");\n";
             std::getline(std::cin, *sql);
             executeQuery(db, *sql);
             delete tableName;
@@ -158,9 +158,9 @@ int main() {
         case 4: {
             std::string* tableName = new std::string;
             std::string* sql = new std::string;
-            std::cout << "Ââåäèòå íàçâàíèå òàáëèöû: ";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ Ã²Ã Ã¡Ã«Ã¨Ã¶Ã»: ";
             std::getline(std::cin, *tableName);
-            std::cout << "Ââåäèòå SQL-çàïðîñ äëÿ îáíîâëåíèÿ äàííûõ (íàïðèìåð, UPDATE " << *tableName << " SET name = 'Bob' WHERE id = 1);\n";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ SQL-Ã§Ã Ã¯Ã°Ã®Ã± Ã¤Ã«Ã¿ Ã®Ã¡Ã­Ã®Ã¢Ã«Ã¥Ã­Ã¨Ã¿ Ã¤Ã Ã­Ã­Ã»Ãµ (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, UPDATE " << *tableName << " SET name = 'Human' WHERE id = 1);\n";
             std::getline(std::cin, *sql);
             executeSQL(db, *sql);
             delete tableName;
@@ -170,9 +170,9 @@ int main() {
         case 5: {
             std::string* tableName = new std::string;
             std::string* sql = new std::string;
-            std::cout << "Ââåäèòå íàçâàíèå òàáëèöû: ";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ Ã²Ã Ã¡Ã«Ã¨Ã¶Ã»: ";
             std::getline(std::cin, *tableName);
-            std::cout << "Ââåäèòå SQL-çàïðîñ äëÿ óäàëåíèÿ äàííûõ (íàïðèìåð, DELETE FROM " << *tableName << " WHERE id = 1);\n";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ SQL-Ã§Ã Ã¯Ã°Ã®Ã± Ã¤Ã«Ã¿ Ã³Ã¤Ã Ã«Ã¥Ã­Ã¨Ã¿ Ã¤Ã Ã­Ã­Ã»Ãµ (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, DELETE FROM " << *tableName << " WHERE id = 1);\n";
             std::getline(std::cin, *sql);
             executeSQL(db, *sql);
             delete tableName;
@@ -181,7 +181,7 @@ int main() {
         }
         case 6: {
             std::string* sql = new std::string;
-            std::cout << "Ââåäèòå SQL-çàïðîñ (èëè 'exit' äëÿ âûõîäà):\n";
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ SQL-Ã§Ã Ã¯Ã°Ã®Ã± (Ã¨Ã«Ã¨ 'exit' Ã¤Ã«Ã¿ Ã¢Ã»ÃµÃ®Ã¤Ã ):\n";
             while (true) {
                 std::cout << "> ";
                 std::getline(std::cin, *sql);
@@ -191,8 +191,8 @@ int main() {
             delete sql;
             break;
         }
-        case 7: std::cout << "Âûõîä...\n"; break;
-        default: std::cout << "Íåâåðíûé âûáîð. Ïîïðîáóéòå ñíîâà.\n"; break;
+        case 7: std::cout << "Ã‚Ã»ÃµÃ®Ã¤...\n"; break;
+        default: std::cout << "ÃÃ¥Ã¢Ã¥Ã°Ã­Ã»Ã© Ã¢Ã»Ã¡Ã®Ã°. ÃÃ®Ã¯Ã°Ã®Ã¡Ã³Ã©Ã²Ã¥ Ã±Ã­Ã®Ã¢Ã .\n"; break;
         }
     } while (choice != 7);
 
