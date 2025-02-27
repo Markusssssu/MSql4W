@@ -28,5 +28,6 @@
    - Debian (`sudo apt install g++ sqlite3`)
 3. Склонируй репозиторий:
    ```bash
-   git clone https://github.com/ваш-username/ваш-репозиторий.git
-   cd ваш-репозиторий
+   git clone https://github.com/Markusssssu/MSql4W.git
+   cd MSql4W\Sqlite3\x64\Debug
+   ./Sqlite3
