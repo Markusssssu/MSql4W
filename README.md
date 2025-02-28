@@ -25,7 +25,6 @@
    - На Linux используй пакетный менеджер (например, `sudo apt install g++ sqlite3`).
 2. Пакетный менеджер для дистрибувов.
    - Arch (`sudo pacman -S g++` `sudo pacman -S sqlite3`)
-   - Monjaro (`sudo pacman -S g++` `sudo pacman -S sqlite3`)
    - Fedora (`sudo dnf install g++ sqlite3`)
    - Debian (`sudo apt install g++ sqlite3`)
 3. Склонируй репозиторий:
